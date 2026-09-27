@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <filesystem>
 
 std::string get_indentation(unsigned int num_indents) {
     std::string result = "";
@@ -42,8 +43,11 @@ void write_conditions(char op, std::ofstream& output) {
 }
 
 int main() {
+    std::filesystem::path output_path = "output/calculator.cpp";
+    std::filesystem::create_directories(output_path.parent_path());
+    std::ofstream output(output_path);
+
     std::ifstream boilerplate("boilerplate.txt");
-    std::ofstream output("calculator.cpp");
     output << boilerplate.rdbuf();
 
     write_conditions('+', output);
