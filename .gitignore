@@ -1,0 +1,6 @@
+calculator.cpp
+
+*.exe
+*.o
+
+.vscode/
