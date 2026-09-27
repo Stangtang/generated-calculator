@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 std::string get_indentation(unsigned int num_indents) {
     std::string result = "";
@@ -13,23 +14,27 @@ void write_conditions(char op, std::ofstream& output) {
     output << get_indentation(1) << "if (op == '" << op << "') {\n";
     for (unsigned int i = 0; i <= 100; i++) {
         for (unsigned int j = 0; j <= 100; j++) {
-            double answer;
+            std::string answer;
             switch(op) {
                 case '+':
-                    answer = i + j;
+                    answer = std::to_string(i + j);
                     break;
                 case '-':
-                    answer = i - j;
+                    answer = std::to_string(i - j);
                     break;
                 case '*':
-                    answer = i * j;
+                    answer = std::to_string(i * j);
                     break;
                 case '/':
-                    answer = static_cast<double>(i) / j;
+                    if (j == 0) {
+                        answer = "Cannot divide by 0.";
+                    } else {
+                        answer = std::to_string(static_cast<double>(i) / j);
+                    }
                     break;
             }
             output << get_indentation(2) << "if (num1 == " << i << " && num2 == " << j << ") {\n";
-            output << get_indentation(3) << "std::cout << " << answer << " << '" << "\\n" << "'" << ";\n";
+            output << get_indentation(3) << "std::cout << \"" << answer << "\" << '" << "\\n" << "'" << ";\n";
             output << get_indentation(2) << "}\n";
         }
     }
@@ -42,9 +47,9 @@ int main() {
     output << boilerplate.rdbuf();
 
     write_conditions('+', output);
-    write_conditions('-', output);    
+    write_conditions('-', output);
     write_conditions('*', output);
     write_conditions('/', output);
-    
+
     output << "}\n";
 }
