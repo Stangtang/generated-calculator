@@ -1,0 +1,50 @@
+#include <iostream>
+#include <fstream>
+
+std::string get_indentation(unsigned int num_indents) {
+    std::string result = "";
+    while (num_indents--) {
+        result += "    ";
+    }
+    return result;
+}
+
+void write_conditions(char op, std::ofstream& output) {
+    output << get_indentation(1) << "if (op == '" << op << "') {\n";
+    for (unsigned int i = 0; i <= 100; i++) {
+        for (unsigned int j = 0; j <= 100; j++) {
+            double answer;
+            switch(op) {
+                case '+':
+                    answer = i + j;
+                    break;
+                case '-':
+                    answer = i - j;
+                    break;
+                case '*':
+                    answer = i * j;
+                    break;
+                case '/':
+                    answer = static_cast<double>(i) / j;
+                    break;
+            }
+            output << get_indentation(2) << "if (num1 == " << i << " && num2 == " << j << ") {\n";
+            output << get_indentation(3) << "std::cout << " << answer << " << '" << "\\n" << "'" << ";\n";
+            output << get_indentation(2) << "}\n";
+        }
+    }
+    output << get_indentation(1) << "}\n";
+}
+
+int main() {
+    std::ifstream boilerplate("boilerplate.txt");
+    std::ofstream output("calculator.cpp");
+    output << boilerplate.rdbuf();
+
+    write_conditions('+', output);
+    write_conditions('-', output);    
+    write_conditions('*', output);
+    write_conditions('/', output);
+    
+    output << "}\n";
+}
