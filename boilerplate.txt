@@ -4,7 +4,7 @@ int main() {
     int num1, num2;
     char op;
 
-    std::cout << "ADVANCED CALCULATOR 1-100\n";
+    std::cout << "ADVANCED CALCULATOR 0-100\n";
     std::cout << "Type an expression (e.g., 3 * 2) and press Enter:\n\n";
 
     std::cin >> num1 >> op >> num2;
