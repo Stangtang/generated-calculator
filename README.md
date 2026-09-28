@@ -1,23 +1,9 @@
 # Generated Calculator
 
-A C++ program that generates a calculator's source code using metaprogramming. The calculator is produced by `generator.cpp` rather than written by hand. No AI is involved.
+Project that utilizes advaced meta-programming paradigm to code a calculator without coding it (NO AI)
 
-## Generate the calculator
+### how to use
 
-Compile and run the generator:
+build and run generator.cpp
 
-```sh
-g++ generator.cpp -o generator
-./generator
-```
-
-The generated source file will be at `output/calculator.cpp`.
-
-## Run the calculator
-
-Compile and run the generated program:
-
-```sh
-g++ output/calculator.cpp -o calculator
-./calculator
-```
+the treasure you seek will be in output/calculator.cpp
