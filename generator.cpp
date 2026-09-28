@@ -1,7 +1,7 @@
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <string>
-#include <filesystem>
 
 std::string get_indentation(unsigned int num_indents) {
     std::string result = "";
