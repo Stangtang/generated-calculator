@@ -6,7 +6,7 @@ An intentionally impractical calculator as a proof of concept.
 
 ## Customization
 
-Change the `max_operand` constant (`constexpr`) in `generator.cpp` to adjust the range, then regenerate and recompile the calculator.
+Change the `max_operand` `constexpr` in `generator.cpp` to adjust the range, then regenerate and recompile the calculator.
 
 I recommend starting with `100`. At `1000`, the generated file is too large to compile on my machine.
 
