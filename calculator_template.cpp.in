@@ -1,10 +1,28 @@
 #include <iostream>
+#include <sstream>
+#include <string>
 
 int main() {
+    constexpr int max_operand = @MAX_OPERAND@;
     int num1, num2;
     char op;
 
-    std::cout << "ADVANCED CALCULATOR 0-100\n";
+    std::cout << "ADVANCED CALCULATOR 0-" << max_operand << '\n';
     std::cout << "Type an expression (e.g., 3 * 2) and press Enter:\n\n";
 
-    std::cin >> num1 >> op >> num2;
+    std::string expression;
+    std::getline(std::cin, expression);
+    std::istringstream input(expression);
+    std::string trailing;
+    if (!(input >> num1 >> op >> num2) || (input >> trailing)) {
+        std::cerr << "Invalid expression. Use two integers and an operator.\n";
+        return 1;
+    }
+    if (num1 < 0 || num1 > max_operand || num2 < 0 || num2 > max_operand) {
+        std::cerr << "Both operands must be between 0 and " << max_operand << ".\n";
+        return 1;
+    }
+    if (op != '+' && op != '-' && op != '*' && op != '/') {
+        std::cerr << "Supported operators: +, -, *, /\n";
+        return 1;
+    }
