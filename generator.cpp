@@ -16,12 +16,18 @@ void write_conditions(char op, std::string& generated,
         for (unsigned int j = 0; j <= max_operand; ++j) {
             std::string answer;
             switch (op) {
-                case '+': answer = std::to_string(i + j); break;
-                case '-': answer = std::to_string(i - j); break;
-                case '*': answer = std::to_string(i * j); break;
+                case '+':
+                    answer = std::to_string(i + j);
+                    break;
+                case '-':
+                    answer = std::to_string(i - j);
+                    break;
+                case '*':
+                    answer = std::to_string(i * j);
+                    break;
                 case '/':
-                    answer = j == 0 ? "Cannot divide by 0."
-                                    : std::to_string(static_cast<double>(i) / j);
+                    answer =
+                        j == 0 ? "Cannot divide by 0." : std::to_string(static_cast<double>(i) / j);
                     break;
             }
 
