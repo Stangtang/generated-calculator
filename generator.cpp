@@ -44,7 +44,7 @@ void write_conditions(char op, std::string& generated,
 }
 
 int main() {
-    std::ifstream boilerplate("boilerplate.txt");
+    std::ifstream boilerplate("calculator_template.cpp.in");
     if (!boilerplate) {
         std::cerr << "Unable to open boilerplate.txt\n";
         return 1;
