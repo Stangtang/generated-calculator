@@ -1,16 +1,15 @@
 # Generated Calculator
 
-This program is not practical at all, and is a proof of concept.
+An intentionally impractical proof of concept of a calculator.
 
-This program precomputes answers of the four basic operations on numbers 0-1000
-and generates a seperate `if` statement for each pair of inputs.
+`generator.cpp` precomputes addition, subtraction, multiplication, and division for every pair of integers from `0` to `1000`, generating a separate `if` statement for each case. The generated calculator simply navigates these `if` statements to print the result without doing any arithmetic.
 
-The generated calculator performs no arithmetic to find answers.
+## Customization
 
-## Customizability
+Change the `max_operand` constant (`constexpr`) in `generator.cpp` to adjust the range, then regenerate and recompile the calculator.
 
-To adjust the range of the calculator, you can change the max_operand conexpr in generator.cpp. I suggest trying 100 as 1000 causes the output file to not even compile for me.
+I recommend starting with `100`. At `1000`, the generated file is too large to compile on my machine.
 
 ## Output
 
-The generate calculator is located in the output folder.
+The generated calculator source is in the `output/` folder.
